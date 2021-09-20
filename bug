@@ -1,10 +1,11 @@
 int main(int argc, char **argv)
 {
   volatile int modified;
-  char buffer[64];
+  const int buf_size = 64; 
+  char buffer[buf_size];
 
   modified = 0;
-  gets(buffer);
+  fgets(buffer, buf_size, stdin);
 
   if(modified != 0) {
       printf("you have changed the 'modified' variable\n");
